@@ -1,18 +1,18 @@
 package com.chess4math.MyBankingApp.dto;
 
+import com.chess4math.MyBankingApp.model.Customer;
 import lombok.*;
 
 
 @Builder
-@Getter
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
+@Value
 public class CreditScoreDTO {
 
     Long id;
 
-    private String ssn;
+    String ssn;
 
-    private Integer score;
+    Integer score;
+
+    Customer customer;
 }

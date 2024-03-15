@@ -1,29 +1,28 @@
 package com.chess4math.MyBankingApp.dto;
 
 import com.chess4math.MyBankingApp.model.Customer;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
 @Builder
-@Getter
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
+@Value
 public class BankDTO {
 
     Long id;
 
-    private String name;
+    String name;
 
-    private Long phoneNumber;
+    String phoneNumber;
 
-    private String emailAddress;
+    String emailAddress;
 
-    private Long routingNumber;
+    String routingNumber;
 
-    private Set<Customer> customers;
+    Set<Customer> customers = new HashSet<>();
 
 
 }

@@ -2,30 +2,33 @@ package com.chess4math.MyBankingApp.dto;
 
 import com.chess4math.MyBankingApp.model.Account;
 import com.chess4math.MyBankingApp.model.Bank;
+import com.chess4math.MyBankingApp.model.CreditScore;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
 
-@Builder
-@Getter
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
+
+@Builder(toBuilder = true)
+@Value
 public class CustomerDTO {
-
 
     Long id;
 
-    private String name;
+    String name;
 
-    private Long phoneNumber;
+    String phoneNumber;
 
-    private String emailAddress;
+    String emailAddress;
 
-    private String address;
+    String address;
 
-    private String ssn;
+    String ssn;
 
-    private Bank bank;
+    Bank bank;
 
-    private Account account;
+    Set<Account> accounts = new HashSet<>();
+
+    CreditScore creditScore;
 }

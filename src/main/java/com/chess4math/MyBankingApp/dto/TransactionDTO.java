@@ -2,6 +2,10 @@ package com.chess4math.MyBankingApp.dto;
 
 import com.chess4math.MyBankingApp.enums.TransactionType;
 import com.chess4math.MyBankingApp.model.Account;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -9,19 +13,16 @@ import java.time.LocalDateTime;
 
 
 @Builder
-@Getter
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
+@Value
 public class TransactionDTO {
 
-    private Long id;
+    Long id;
 
-    private BigDecimal amount;
+    BigDecimal amount;
 
-    private TransactionType type;
+    TransactionType type;
 
-    private LocalDateTime timestamp;
+    LocalDateTime timestamp;
 
-    private Account account;
+    Account account;
 }
