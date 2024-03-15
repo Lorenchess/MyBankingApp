@@ -9,10 +9,6 @@ import java.util.List;
 
 public interface BankService {
 
-    CustomerDTO addCustomer(CustomerDTO customerDTO);
-
-    void removeCustomer(Long customerId);
-
     boolean performTransaction(TransactionDTO transactionDTO);
 
     List<CustomerDTO> getAllCustomers(Long bankId, Pageable pageable);

@@ -10,15 +10,6 @@ import java.util.List;
 
 @Service
 public class BankServiceImpl implements BankService{
-    @Override
-    public CustomerDTO addCustomer(CustomerDTO customerDTO) {
-        return null;
-    }
-
-    @Override
-    public void removeCustomer(Long customerId) {
-
-    }
 
     @Override
     public boolean performTransaction(TransactionDTO transactionDTO) {
