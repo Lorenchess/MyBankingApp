@@ -1,10 +1,7 @@
 package com.chess4math.MyBankingApp.model;
 
 import com.chess4math.MyBankingApp.enums.TransactionType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -24,9 +21,12 @@ public class Transaction {
 
     private BigDecimal amount;
 
+    @Enumerated(EnumType.STRING)
     private TransactionType type;
 
     private LocalDateTime timestamp;
 
+    @ManyToOne
+    @JoinColumn(name = "account_id")
     private Account account;
 }

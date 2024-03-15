@@ -1,11 +1,9 @@
 package com.chess4math.MyBankingApp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,13 +20,13 @@ public class Bank {
 
     private String name;
 
-    private Long phoneNumber;
+    private String phoneNumber;
 
     private String emailAddress;
 
-    private Long routingNumber;
+    private String routingNumber;
 
-    private Set<Customer> customers;
-
+    @OneToMany(mappedBy = "bank")
+    private Set<Customer> customers = new HashSet<>();
 
 }

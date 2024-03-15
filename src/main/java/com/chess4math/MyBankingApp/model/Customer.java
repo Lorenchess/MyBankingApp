@@ -1,10 +1,10 @@
 package com.chess4math.MyBankingApp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Builder
@@ -21,7 +21,7 @@ public class Customer {
 
     private String name;
 
-    private Long phoneNumber;
+    private String phoneNumber;
 
     private String emailAddress;
 
@@ -29,7 +29,13 @@ public class Customer {
 
     private String ssn;
 
+    @ManyToOne
+    @JoinColumn(name = "bank_id")
     private Bank bank;
 
-    private Account account;
+    @OneToMany(mappedBy = "customer")
+    private Set<Account> accounts = new HashSet<>();
+
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+    private CreditScore creditScore;
 }
