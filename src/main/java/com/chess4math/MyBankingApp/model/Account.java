@@ -1,5 +1,7 @@
 package com.chess4math.MyBankingApp.model;
 
+import com.chess4math.MyBankingApp.enums.AccountStatus;
+import com.chess4math.MyBankingApp.enums.AccountType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +23,12 @@ public class Account {
     Long id;
 
     private BigDecimal balance;
+
+    @Enumerated(EnumType.STRING)
+    private AccountType accountType;
+
+    @Enumerated(EnumType.STRING)
+    private AccountStatus accountStatus;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
